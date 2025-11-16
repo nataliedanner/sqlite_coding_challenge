@@ -25,3 +25,15 @@ JOIN products p ON oi.product_id = p.id
 WHERE o.status = 'Delivered'
 GROUP BY p.category
 ORDER BY revenue DESC;
+
+-- TASK 3
+SELECT e.first_name, e.last_name, e.salary AS employee_salary, d.name AS department_name, dept_avg.department_average
+FROM employees e
+JOIN departments d ON e.department_id = d.id
+JOIN (
+    SELECT department_id, round(AVG(salary), 2) AS department_average
+    FROM employees
+    GROUP BY department_id
+) dept_avg ON e.department_id = dept_avg.department_id
+WHERE e.salary > dept_avg.department_average
+ORDER BY e.salary DESC, e.salary DESC;
