@@ -1,3 +1,6 @@
+-- Tool I used: SQLite.
+-- Results validated by running the queries and comparing the outputs to my own calculations using the data provided in the database.
+
 -- TASK 1
 SELECT sum(oi.quantity * p.price) AS total_spend,
     c.first_name || ' ' || c.last_name AS customer_full_name
