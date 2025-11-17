@@ -45,4 +45,4 @@ SELECT c.city, COUNT(*) AS gold_customer_count
 FROM customers c
 WHERE c.loyalty_level = 'Gold'
 GROUP BY c.city
-ORDER BY gold_customer_count DESC;
+ORDER BY gold_customer_count DESC, c.city ASC;
