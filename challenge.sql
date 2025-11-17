@@ -1,5 +1,4 @@
 -- TASK 1
-
 SELECT sum(oi.quantity * p.price) AS total_spend,
     c.first_name || ' ' || c.last_name AS customer_full_name
 FROM order_items oi
@@ -37,3 +36,10 @@ JOIN (
 ) dept_avg ON e.department_id = dept_avg.department_id
 WHERE e.salary > dept_avg.department_average
 ORDER BY e.salary DESC, e.salary DESC;
+
+-- TASK 4
+SELECT c.city, COUNT(*) AS gold_customer_count
+FROM customers c
+WHERE c.loyalty_level = 'Gold'
+GROUP BY c.city
+ORDER BY gold_customer_count DESC;
